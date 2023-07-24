@@ -17,6 +17,8 @@ namespace firstapi.Dtos.Student
         public DateTime? LeaveDate { get; set; }
         public required int Landline { get; set; }
         public required bool IsActive { get; set; }
+        public required int Height { get; set; }
+        public required int Weight { get; set; }
 
 
     }

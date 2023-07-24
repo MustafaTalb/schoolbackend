@@ -95,6 +95,8 @@ namespace firstapi.Services.StudentServices
                 student.Landline = updatedStudent.Landline;
                 student.IsActive = updatedStudent.IsActive;
                 student.AddressId = updatedStudent.AddressId;
+                student.Height = updatedStudent.Height;
+                student.Weight = updatedStudent.Weight;
 
                 await _context.SaveChangesAsync();
                 serviceResponse.Data = _mapper.Map<GetStudentDto>(student);

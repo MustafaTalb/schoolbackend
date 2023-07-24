@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace firstapi
 {
     public class AutoMapperProfile : Profile
@@ -15,6 +16,8 @@ namespace firstapi
             CreateMap<AddAreaDto, Area>();
             CreateMap<AddStreetDto, Street>();
             CreateMap<AddAddressDto, Address>();
+            CreateMap<AddIllnessDto, Illness>();
+            CreateMap<AddVaccineDto, Vaccine>();
         }
     }
 }

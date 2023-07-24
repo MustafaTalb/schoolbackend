@@ -12,6 +12,8 @@ namespace firstapi.Data
         public DbSet<Area> Areas => Set<Area>();
         public DbSet<Street> Streets => Set<Street>();
         public DbSet<Address> Addresses => Set<Address>();
+        public DbSet<Vaccine> Vaccines => Set<Vaccine>();
+        public DbSet<Illness> Illnesses => Set<Illness>();
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
 

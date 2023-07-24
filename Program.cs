@@ -1,11 +1,15 @@
 global using firstapi.Models;
 global using firstapi.Services.StudentServices;
+global using firstapi.Services.AddressServices;
+global using firstapi.Services.MedicalServices;
 global using firstapi.Dtos.Student;
+global using firstapi.Dtos.Addresses;
+global using firstapi.Dtos.Medical;
 global using AutoMapper;
 global using Microsoft.EntityFrameworkCore;
 global using firstapi.Data;
-global using firstapi.Services.AddressServices;
-global using firstapi.Dtos.Addresses;
+global using firstapi.Enums;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +27,8 @@ builder.Services.AddScoped<IAddressService<City, AddCityDto>, CityService>();
 builder.Services.AddScoped<IAddressService<Area, AddAreaDto>, AreaService>();
 builder.Services.AddScoped<IAddressService<Street, AddStreetDto>, StreetService>();
 builder.Services.AddScoped<IAddressService<Address, AddAddressDto>, AddressService>();
+builder.Services.AddScoped<IMedicalService<Illness, AddIllnessDto>, IllnessService>();
+builder.Services.AddScoped<IMedicalService<Vaccine, AddVaccineDto>, VaccineService>();
 
 var app = builder.Build();
 app.Use((ctx, next) => { ctx.Response.Headers["Access-Control-Allow-Origin"] = "http://localhost:57986"; return next(); });
