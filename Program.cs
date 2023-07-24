@@ -29,6 +29,8 @@ builder.Services.AddScoped<IAddressService<Street, AddStreetDto>, StreetService>
 builder.Services.AddScoped<IAddressService<Address, AddAddressDto>, AddressService>();
 builder.Services.AddScoped<IMedicalService<Illness, AddIllnessDto>, IllnessService>();
 builder.Services.AddScoped<IMedicalService<Vaccine, AddVaccineDto>, VaccineService>();
+builder.Services.AddScoped<IMedicalService<TakenVaccine, AddTakenVaccine>, TakenVaccineService>();
+builder.Services.AddScoped<IMedicalService<StudentIllness, AddStudentIllness>, StudentIllnessService>();
 
 var app = builder.Build();
 app.Use((ctx, next) => { ctx.Response.Headers["Access-Control-Allow-Origin"] = "http://localhost:57986"; return next(); });

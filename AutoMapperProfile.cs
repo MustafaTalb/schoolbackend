@@ -18,6 +18,8 @@ namespace firstapi
             CreateMap<AddAddressDto, Address>();
             CreateMap<AddIllnessDto, Illness>();
             CreateMap<AddVaccineDto, Vaccine>();
+            CreateMap<AddTakenVaccine, TakenVaccine>();
+            CreateMap<AddStudentIllness, StudentIllness>();
         }
     }
 }
