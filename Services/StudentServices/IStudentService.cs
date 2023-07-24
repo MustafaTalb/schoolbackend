@@ -14,5 +14,7 @@ namespace firstapi.Services.StudentServices
         Task<ServiceResponse<GetStudentDto>> Update(UpdateStudentDto updatedStudent);
         Task<ServiceResponse<List<GetStudentDto>>> Delete(int id);
         Task<ServiceResponse<FullAddress>> GetFullAddressByStudentId(int id);
+        Task<ServiceResponse<List<TakenVaccine>>> GetStudentTakenVaccinesByStudentId(int id);
+        Task<ServiceResponse<List<StudentIllness>>> GetStudentIllnessesByStudentId(int id);
     }
 }

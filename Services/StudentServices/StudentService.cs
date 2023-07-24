@@ -133,5 +133,33 @@ namespace firstapi.Services.StudentServices
                 return serviceResponse;
             }
         }
+        public async Task<ServiceResponse<List<StudentIllness>>> GetStudentIllnessesByStudentId(int studentId)
+        {
+            var serviceResponse = new ServiceResponse<List<StudentIllness>>();
+            List<StudentIllness> illnessesList = await _context.StudentIllnesses.ToListAsync();
+            List<StudentIllness> list = new List<StudentIllness>();
+            foreach (StudentIllness i in illnessesList)
+            {
+                if (i.StudentId == studentId) { list.Add(i); }
+            }
+            serviceResponse.Data = list;
+            serviceResponse.Success = true;
+            serviceResponse.Message = "Got all student illnesses!";
+            return serviceResponse;
+        }
+        public async Task<ServiceResponse<List<TakenVaccine>>> GetStudentTakenVaccinesByStudentId(int studentId)
+        {
+            var serviceResponse = new ServiceResponse<List<TakenVaccine>>();
+            List<TakenVaccine> illnessesList = await _context.TakenVaccines.ToListAsync();
+            List<TakenVaccine> list = new List<TakenVaccine>();
+            foreach (TakenVaccine v in illnessesList)
+            {
+                if (v.StudentId == studentId) { list.Add(v); }
+            }
+            serviceResponse.Data = list;
+            serviceResponse.Success = true;
+            serviceResponse.Message = "Got all student taken vaccines!";
+            return serviceResponse;
+        }
     }
 }

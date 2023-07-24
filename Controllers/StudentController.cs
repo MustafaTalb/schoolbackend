@@ -54,5 +54,16 @@ namespace firstapi.Controllers
         {
             return Ok(await _studentService.GetFullAddressByStudentId(id));
         }
+
+        [HttpGet("GetAllIllnessesByStudent{id}")]
+        public async Task<ActionResult<ServiceResponse<List<StudentIllness>>>> GetAllIllnessesByStudentId(int id)
+        {
+            return Ok(await _studentService.GetStudentIllnessesByStudentId(id));
+        }
+        [HttpGet("GetAllTakenVaccinesByStudent{id}")]
+        public async Task<ActionResult<ServiceResponse<List<TakenVaccine>>>> GetAllTakenVaccinesByStudentId(int id)
+        {
+            return Ok(await _studentService.GetStudentTakenVaccinesByStudentId(id));
+        }
     }
 }
