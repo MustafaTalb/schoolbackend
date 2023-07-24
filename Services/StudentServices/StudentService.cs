@@ -94,7 +94,7 @@ namespace firstapi.Services.StudentServices
                 student.LeaveDate = updatedStudent.LeaveDate;
                 student.Landline = updatedStudent.Landline;
                 student.IsActive = updatedStudent.IsActive;
-                student.AddressId=updatedStudent.AddressId;
+                student.AddressId = updatedStudent.AddressId;
 
                 await _context.SaveChangesAsync();
                 serviceResponse.Data = _mapper.Map<GetStudentDto>(student);
@@ -106,7 +106,30 @@ namespace firstapi.Services.StudentServices
                 serviceResponse.Message = ex.Message;
             }
             return serviceResponse;
+        }
 
+        public async Task<ServiceResponse<FullAddress>> GetFullAddressByStudentId(int studentId)
+        {
+            var serviceResponse = new ServiceResponse<FullAddress>();
+            var student = await _context.Students.FirstOrDefaultAsync(s => s.Id == studentId);
+            if (student != null)
+            {
+                var address = await _context.Addresses.FirstOrDefaultAsync(a => a.Id == student!.AddressId);
+                var street = await _context.Streets.FirstOrDefaultAsync(s => s.Id == address!.StreetId);
+                var area = await _context.Areas.FirstOrDefaultAsync(a => a.Id == street!.AreaId);
+                var city = await _context.Cities.FirstOrDefaultAsync(c => c.Id == area!.CityId);
+                var fullAddress = new FullAddress { City = city!, Area = area!, Street = street!, Address = address! };
+
+                serviceResponse.Data = fullAddress;
+                serviceResponse.Success = true;
+                serviceResponse.Message = "done!";
+                return serviceResponse;
+            }
+            else
+            {
+                serviceResponse.Success = false; serviceResponse.Message = "Student Not Found!";
+                return serviceResponse;
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ global using AutoMapper;
 global using Microsoft.EntityFrameworkCore;
 global using firstapi.Data;
 global using firstapi.Services.AddressServices;
-global using firstapi.Dtos.Address;
+global using firstapi.Dtos.Addresses;
 
 var builder = WebApplication.CreateBuilder(args);
 

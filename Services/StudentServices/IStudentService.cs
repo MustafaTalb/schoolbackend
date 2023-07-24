@@ -13,6 +13,6 @@ namespace firstapi.Services.StudentServices
         Task<ServiceResponse<List<GetStudentDto>>> AddNew(AddStudentDto newStudent);
         Task<ServiceResponse<GetStudentDto>> Update(UpdateStudentDto updatedStudent);
         Task<ServiceResponse<List<GetStudentDto>>> Delete(int id);
-
+        Task<ServiceResponse<FullAddress>> GetFullAddressByStudentId(int id);
     }
 }

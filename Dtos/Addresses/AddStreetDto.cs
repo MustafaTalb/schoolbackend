@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace firstapi.Dtos.Address
+namespace firstapi.Dtos.Addresses
 {
-    public class AddAreaDto
+    public class AddStreetDto
     {
         public required string Name { get; set; }
-        public int CityId { get; set; }
+        public int AreaId { get; set; }
     }
 }

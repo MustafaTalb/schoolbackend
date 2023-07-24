@@ -48,5 +48,11 @@ namespace firstapi.Controllers
         {
             return Ok(await _studentService.Delete(id));
         }
+
+        [HttpGet("GetFullAddressByStudent{id}")]
+        public async Task<ActionResult<ServiceResponse<FullAddress>>> GetFullAddressByStudentId(int id)
+        {
+            return Ok(await _studentService.GetFullAddressByStudentId(id));
+        }
     }
 }
