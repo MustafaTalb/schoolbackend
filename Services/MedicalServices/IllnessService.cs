@@ -61,7 +61,7 @@ namespace firstapi.Services.MedicalServices
             var serviceResponse = new ServiceResponse<Illness>();
             try
             {
-                var illness = await _context.Illnesses.FirstOrDefaultAsync(c => c.Id == id);
+                var illness = await _context.Illnesses.FirstOrDefaultAsync(i => i.Id == id);
                 if (illness is null) throw new Exception($"Illness with the id {id} is not found.");
                 serviceResponse.Data = illness;
                 serviceResponse.Message = "Found";

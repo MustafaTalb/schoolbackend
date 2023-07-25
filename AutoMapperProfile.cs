@@ -20,6 +20,9 @@ namespace firstapi
             CreateMap<AddVaccineDto, Vaccine>();
             CreateMap<AddTakenVaccine, TakenVaccine>();
             CreateMap<AddStudentIllness, StudentIllness>();
+            CreateMap<AddFamilyDto, Family>();
+            CreateMap<AddFatherDto, Father>();
+            CreateMap<AddMotherDto, Mother>();
         }
     }
 }

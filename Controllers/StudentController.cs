@@ -44,7 +44,7 @@ namespace firstapi.Controllers
         }
 
         [HttpDelete("DeleteBy{id}")]
-        public async Task<ActionResult<ServiceResponse<GetStudentDto>>> Delete(int id)
+        public async Task<ActionResult<ServiceResponse<List<GetStudentDto>>>> Delete(int id)
         {
             return Ok(await _studentService.Delete(id));
         }
