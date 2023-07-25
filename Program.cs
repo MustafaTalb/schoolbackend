@@ -33,7 +33,7 @@ builder.Services.AddScoped<IMedicalService<TakenVaccine, AddTakenVaccine>, Taken
 builder.Services.AddScoped<IMedicalService<StudentIllness, AddStudentIllness>, StudentIllnessService>();
 
 var app = builder.Build();
-app.Use((ctx, next) => { ctx.Response.Headers["Access-Control-Allow-Origin"] = "http://localhost:57986"; return next(); });
+app.Use((ctx, next) => { ctx.Response.Headers["Access-Control-Allow-Origin"] = "http://localhost:63667"; return next(); });
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

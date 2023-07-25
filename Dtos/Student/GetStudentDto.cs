@@ -19,7 +19,7 @@ namespace firstapi.Dtos.Student
         public required bool IsActive { get; set; }
         public required int Height { get; set; }
         public required int Weight { get; set; }
-
+        public required int AddressId { get; set; }
 
     }
 }
