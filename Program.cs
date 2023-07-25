@@ -33,6 +33,9 @@ builder.Services.AddScoped<IMedicalService<Illness, AddIllnessDto>, IllnessServi
 builder.Services.AddScoped<IMedicalService<Vaccine, AddVaccineDto>, VaccineService>();
 builder.Services.AddScoped<IMedicalService<TakenVaccine, AddTakenVaccine>, TakenVaccineService>();
 builder.Services.AddScoped<IMedicalService<StudentIllness, AddStudentIllness>, StudentIllnessService>();
+builder.Services.AddScoped<IFamilyService<Family, AddFamilyDto>, FamilyService>();
+builder.Services.AddScoped<IFamilyService<Father, AddFatherDto>, FatherService>();
+builder.Services.AddScoped<IFamilyService<Mother, AddMotherDto>, MotherService>();
 
 var app = builder.Build();
 app.Use((ctx, next) => { ctx.Response.Headers["Access-Control-Allow-Origin"] = "http://localhost:63667"; return next(); });
